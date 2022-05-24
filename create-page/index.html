@@ -22,14 +22,9 @@
         <main id="create-main">
             <h2>Add a Participant</h2>
             <form class="participant-form">
-                <label>
-                    Participants Name
-                    <input name="participant-name" />
-                </label>
-                <label>
-                    Workshop
-                    <select id="workshop-id" name="workshop-id"></select>
-                </label>
+                <label for="name"> Name: <input type="text" name="name" /> </label>
+                <label for="contact"> Contact: <input type="text" name="contact" /> </label>
+                <select id="workshops" name="workshop_id"></select>
                 <button>Add Participant</button>
             </form>
         </main>

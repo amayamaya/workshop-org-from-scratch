@@ -1,12 +1,16 @@
 import { checkAuth, logout } from '../fetch-utils.js';
+import { renderOption } from '../render-utils.js';
 
-const form = document.querySelector('.participant-form');
+const participantForm = document.querySelector('.participant-form');
+const workshopSelct = document.getElementById('workshops')
 const logoutButton = document.getElementById('logout');
 
-form.addEventListener('submit', async (e) => {
+
+
+participantForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const participantForm = new FormData(form);
-    console.log(participantForm);
+    const Form = new FormData(participantForm);
+    console.log(Form);
 });
 
 checkAuth();

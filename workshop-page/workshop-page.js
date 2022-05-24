@@ -16,3 +16,4 @@ async function displayWorkshops() {
     const data = await getWorkshops();
     console.log(data);
 }
+displayWorkshops();

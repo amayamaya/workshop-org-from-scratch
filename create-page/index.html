@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/home.css">
-    <link rel="stylesheet" href="./create-page.css">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-<script type="module" src="./workshop-page.js"></script>
-
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/home.css" />
+        <link rel="stylesheet" href="./create-page.css" />
+        <title>Join the Fun</title>
+    </head>
+    <body>
+        <header>
+            <div class="gutter-right logo">
+                <a href="../workshop-page">See All Workshops</a>
+                <a href="../create-page">Add a Participant</a>
+            </div>
+        </header>
+        <button id="logout">Logout</button>
+        <main id="create-main">
+            <h2>Add a Participant</h2>
+            <form class="participant-form">
+                <label>
+                    Participants Name
+                    <input name="participant-name" />
+                </label>
+                <label>
+                    Workshop
+                    <select id="workshop-id" name="workshop-id"></select>
+                </label>
+                <button>Add Participant</button>
+            </form>
+        </main>
+    </body>
+    <script type="module" src="./workshop-page.js"></script>
 </html>

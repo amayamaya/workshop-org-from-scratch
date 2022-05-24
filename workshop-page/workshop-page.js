@@ -13,7 +13,7 @@ async function displayWorkshops() {
     // const main = document.querySelector('main');
     workshopsEl.textContent = '';
     const data = await getWorkshops();
-    // console.log(data);
+    console.log(data);
     for (let workshop of data) {
         const div = document.createElement('div');
         div.classList.add('workshop');

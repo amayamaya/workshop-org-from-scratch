@@ -1,4 +1,4 @@
-import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+import { checkAuth, createParticipant, getWorkshops, logout } from '../fetch-utils.js';
 import { renderOption } from '../render-utils.js';
 
 const participantForm = document.querySelector('.participant-form');
@@ -16,8 +16,15 @@ onLoad();
 
 participantForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const Form = new FormData(participantForm);
-    // console.log(Form.get('workshop_id'));
+    const form = new FormData(participantForm);
+    console.log(form.get('workshop_id'));
+    await createParticipant({
+        name: form.get('name'),
+        contact: form.get('contact'),
+        workshop_id: form.get('workshop_id'),
+    });
+    console.log(participantForm);
+    // window.location.href = '/workshop-page';
 });
 
 checkAuth();

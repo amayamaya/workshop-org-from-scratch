@@ -17,7 +17,7 @@ onLoad();
 participantForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const Form = new FormData(participantForm);
-    console.log(Form);
+    // console.log(Form.get('workshop_id'));
 });
 
 checkAuth();

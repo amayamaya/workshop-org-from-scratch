@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/home.css" />
+        <link rel="stylesheet" href="./create-page.css" />
+        <title>Join the Fun</title>
+    </head>
+    <body>
+        <header>
+            <div class="gutter-right logo">
+                <img src="../assets/logo.png" />
+                <a href="../workshop-page">See All Workshops</a>
+                <a href="../create-page">Add a Participant</a>
+            </div>
+        </header>
+        <button id="logout">Logout</button>
+        <main id="create-main">
+            <h2>Add a Participant</h2>
+            <form class="participant-form">
+                <label for="name"> Name: <input type="text" name="name" /> </label>
+                <label for="contact"> Contact: <input type="text" name="contact" /> </label>
+                <select id="workshops" name="workshop_id"></select>
+                <button>Add Participant</button>
+            </form>
+        </main>
+        <footer>
+            <div class="copy gutter-right">&copy; 2022 Alchemy Code Lab</div>
+        </footer>
+        <script type="module" src="./create-page.js"></script>
+    </body>
+</html>

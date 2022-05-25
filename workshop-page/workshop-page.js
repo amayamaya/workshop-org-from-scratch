@@ -1,31 +1,49 @@
-import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+import {
+    addParticipant,
+    checkAuth,
+    deleteParticipant,
+    getWorkshops,
+    logout,
+} from '../fetch-utils.js';
+import { renderWorkshop } from '../render-utils.js';
 
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
 const workshopsEl = document.querySelector('.workshops-container');
+const addParticipantButton = document.getElementById('participantButton');
 
 logoutButton.addEventListener('click', () => {
     logout();
+});
+
+addParticipantButton.addEventListener('click', () => {
+    addParticipant();
 });
 
 async function displayWorkshops() {
     // const main = document.querySelector('main');
     workshopsEl.textContent = '';
     const data = await getWorkshops();
-    console.log(data);
+    // console.log(data);
     for (let workshop of data) {
-        const div = document.createElement('div');
-        div.classList.add('workshop');
+        const workshopDiv = renderWorkshop(workshop);
 
-        const h3 = document.createElement('h3');
-        h3.textContent = workshop.name;
+        const ul = document.createElement('ul');
+        // console.log(workshop.participants);
+        for (let participant of workshop.participants) {
+            // const div3 = document.createElement('div');
+            const li = document.createElement('li');
+            li.textContent = `${participant.name}: ${participant.contact}`;
+            ul.append(li);
 
-        const div2 = document.createElement('div');
-        div2.classList.add('bunnies');
-
-        div.append(h3, div2);
-        workshopsEl.append(div);
+            li.addEventListener('click', async () => {
+                await deleteParticipant(participant.id);
+                displayWorkshops();
+            });
+        }
+        workshopDiv.append(ul);
+        workshopsEl.append(workshopDiv);
     }
     // console.log(workshopsEl);
 }
